@@ -90,6 +90,20 @@ void deleteE(struct List *list)
          	 p->prev->next=NULL;
          	 free(p);
 }
+struct Node* search(struct List *list, int key) 
+{
+    struct Node* t= list->head;
+    while (t!= NULL)
+    {
+        if (t->data == key) 
+        {
+            return t; 
+        }
+        t = t->next;
+    }
+
+    return NULL;
+}
 void display(struct List *list)
 {
 	struct Node *p= list->head;
@@ -107,10 +121,11 @@ void display(struct List *list)
 int main()
 { 
     struct List *head=NULL;
-    int ch;
+    struct Node* result;
+    int ch,key;
     do
     {
-     printf("\nEnter your choice \n 1 InsertB \n 2 DeleteB \n 3 InsertE \n 4 DeleteE \n 5 Display \n 6 Exit \n");
+     printf("\nEnter your choice \n 1 InsertB \n 2 DeleteB \n 3 InsertE \n 4 DeleteE \n 5 Search \n 6 Display \n 6 Exit \n");
         scanf("%d",&ch);
         switch(ch)
         {
@@ -126,11 +141,23 @@ int main()
              case 4:
                      deleteE(head);
                      break;
-             case 5:
+	     case 5:
+	             printf("Enter the element to search for: ");
+                     scanf("%d", &key);
+                     result = search(head, key);
+                     if (result != NULL)
+                          {
+                                    printf("Element %d found in the list.\n", key);
+                                } 
+                      else
+                                {
+                                    printf("Element %d not found in the list.\n", key);
+                                }
+             case 6:
                      display(head);
                      getch();
                      break;
-             case 6:
+             case 7:
                      exit (0);
              default:
                 {

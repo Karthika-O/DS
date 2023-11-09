@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <conio.h>
 
 // Function to find the union of two sets
 void unionSets(int set1[], int size1, int set2[], int size2) {
-    int unionSet[size1 + size2];
+    int unionSet[10];
     int i, j, k;
 
     // Copy elements from set1 to the unionSet
@@ -34,7 +35,7 @@ void unionSets(int set1[], int size1, int set2[], int size2) {
 
 // Function to find the intersection of two sets
 void intersectionSets(int set1[], int size1, int set2[], int size2) {
-    int intersectionSet[size1];
+    int intersectionSet[10];
     int i, j, k = 0;
 
     for (i = 0; i < size1; i++) {
@@ -55,7 +56,7 @@ void intersectionSets(int set1[], int size1, int set2[], int size2) {
 
 // Function to find the difference between two sets
 void differenceSets(int set1[], int size1, int set2[], int size2) {
-    int differenceSet[size1];
+    int differenceSet[10];
     int i, j, k = 0;
 
     for (i = 0; i < size1; i++) {
@@ -79,21 +80,19 @@ void differenceSets(int set1[], int size1, int set2[], int size2) {
 }
 
 int main() {
-    int size1, size2;
+    int i,size1, size2,set1[10],set2[10];
 
     printf("Enter the size of the first set: ");
     scanf("%d", &size1);
-    int set1[size1];
     printf("Enter elements of the first set: ");
-    for (int i = 0; i < size1; i++) {
+    for (i = 0; i < size1; i++) {
         scanf("%d", &set1[i]);
     }
 
     printf("Enter the size of the second set: ");
     scanf("%d", &size2);
-    int set2[size2];
     printf("Enter elements of the second set: ");
-    for (int i = 0; i < size2; i++) {
+    for (i = 0; i < size2; i++) {
         scanf("%d", &set2[i]);
     }
 
@@ -101,5 +100,6 @@ int main() {
     intersectionSets(set1, size1, set2, size2);
     differenceSets(set1, size1, set2, size2);
 
+     getch();
     return 0;
 }

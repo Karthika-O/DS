@@ -16,7 +16,7 @@ void main()
    }
    printf("Enter the size of Set A");
    scanf("%d",&na);
-   printf("Enter elements of Set B");
+   printf("Enter elements of Set A");
    for(i=0;i<na;i++)
    {
      scanf("%d",&a[i]);
